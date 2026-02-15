@@ -46,7 +46,7 @@ const Signin = () => {
             <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Username or email
+                        Email
                     </label>
                     <input
                         {...register('email')}
