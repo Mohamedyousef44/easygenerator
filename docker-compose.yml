@@ -1,0 +1,33 @@
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/auth_module
+      - JWT_SECRET=supersecretkey
+      - JWT_EXPIRES_IN=3600s
+      - PORT=3000
+    restart: always
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:80"
+    restart: always
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
