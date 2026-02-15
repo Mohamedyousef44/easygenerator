@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import illustration from '/home/yossef/.gemini/antigravity/brain/db77c152-0613-45a0-9281-21655c273d37/auth_illustration_1770889762659.png';
+import img from '../../assets/bg-img.png';
 
 interface AuthLayoutProps {
     children: ReactNode;
@@ -14,7 +14,7 @@ const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
             <div className="hidden lg:flex lg:w-1/2 bg-[#E6E6FA] items-center justify-center p-12 relative overflow-hidden">
                 <div className="relative z-10 w-full max-w-lg">
                     <img
-                        src={illustration}
+                        src={img}
                         alt="Learning Platform Illustration"
                         className="w-full h-auto object-contain"
                     />
