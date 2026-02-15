@@ -27,7 +27,11 @@ The backend is built with NestJS.
     ```
 
 3.  **Environment Configuration**:
-    make sure you have your mongodb url in the code or environment variables if required by the application logic.
+    -   Copy the example environment file:
+        ```bash
+        cp .env.example .env
+        ```
+    -   Open `.env` and update the variables (especially `DATABASE_URL` and `JWT_*` secrets) with your own data.
 
 4.  Start the backend server:
     ```bash
@@ -62,6 +66,7 @@ The frontend is built with React and Vite.
 You can also run the entire application stack (Frontend, Backend, and MongoDB) using Docker.
 
 1.  **Prerequisites**: Ensure you have Docker and Docker Compose installed.
+2.  **Environment Configuration**: The Docker setup uses the `backend/.env` file. Ensure you have created it as described in the Backend Setup section.
 
 2.  **Build and Run**:
     Run the following command in the root directory:

@@ -13,9 +13,9 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_SECRET'),
+        secret: configService.get<string>('JWT_ACCESS_SECRET') || 'fallback-access-secret',
         signOptions: {
-          expiresIn: (configService.get<string>('JWT_EXPIRES_IN') || '3600s') as any,
+          expiresIn: (configService.get<string>('JWT_ACCESS_EXPIRES_IN') || '15m') as any,
         },
       }),
       inject: [ConfigService],
